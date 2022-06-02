@@ -3,7 +3,7 @@ import ColorButton from './colorButton';
 
 const ColorNav = ({ setColor }) => {
   return (
-    <Box position="fixed" w="sm" bottom={'20px'} zIndex={1}>
+    <Box position="fixed" w="xs" bottom={'20px'} zIndex={1}>
       <Container
         display="flex"
         p={2}
@@ -14,11 +14,11 @@ const ColorNav = ({ setColor }) => {
       >
         <Center width={'100vw'} position={'fixed'} bottom={'20px'}>
           <HStack
-            w={'sm'}
-            borderRadius={'xl'}
+            w={'2xs'}
+            borderRadius={'lg'}
             css={{ backdropFilter: 'blur(25px)' }}
             bgColor={'whiteAlpha.100'}
-            spacing={5}
+            spacing={4}
             p={3}
             justify={'center'}
           >

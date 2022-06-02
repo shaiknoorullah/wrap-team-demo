@@ -10,8 +10,8 @@ const ColorButton = props => {
       ref={colorBox}
       onClick={onClick}
       bgColor={color}
-      w={'3em'}
-      h={'3em'}
+      w={'2em'}
+      h={'2em'}
       borderRadius={'lg'}
     />
   );

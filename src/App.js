@@ -7,6 +7,8 @@ import Scene from './components/threeJs/scene';
 import ColorNav from './components/colorNav';
 import NextCarBtn from './components/nextCarButton';
 
+import GroundPlane from './components/threeJs/groundPlane';
+
 const App = () => {
   const [clicked, setClicked] = useState(true);
 

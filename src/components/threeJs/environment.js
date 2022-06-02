@@ -10,12 +10,12 @@ const BgEnv = () => {
 
     <group>
       {/* Ceiling */}
-      <Lightformer
-        intensity={0.75}
+      {/* <Lightformer
+        intensity={1}
         rotation-x={Math.PI / 2}
         position={[0, 5, -9]}
         scale={[10, 10, 1]}
-      />
+      /> */}
       <MovingSpots />
       {/* Sides */}
       <Lightformer

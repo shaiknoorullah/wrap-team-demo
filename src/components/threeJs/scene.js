@@ -4,7 +4,7 @@ import {
   ContactShadows,
   Environment,
   Backdrop,
-  // OrbitControls,
+  OrbitControls,
 } from '@react-three/drei';
 import {
   EffectComposer,
@@ -19,12 +19,19 @@ import BasicLights from './lights/basicLighting';
 // import Lambo from './models/lambo'
 import BgEnv from './environment';
 import CameraRig from './camera';
+import GroundPlane from './groundPlane';
 
 const Scene = ({ children }) => {
   return (
-    <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 17], fov: 30 }}>
+    <Canvas
+      shadows
+      // exposure={1}
+      dpr={[1, 2]}
+      camera={{ position: [0, 0, 17], fov: 30 }}
+    >
       {children}
       {/* <Lambo scale={1.6} position={[-0.5, -1.115, 0]} rotation={[0, -(Math.PI / 2) * 1.6, 0]} /> */}
+      <fog attach="fog" args={['gray', 5, 100]} />
       <BasicLights />
       <ContactShadows
         resolution={2048}
@@ -42,10 +49,11 @@ const Scene = ({ children }) => {
         // receiveShadow
         scale={[50, 15, 20]}
         floor={1.5}
-        position={[0, -1.37, -10]}
+        position={[0, -1.37, -15]}
       >
         <meshPhysicalMaterial roughness={0.75} color="#202023" />
       </Backdrop>
+      <GroundPlane position={[0, -1.3, 0]} shadowOpacity={1} />
       <BakeShadows />
       <CameraRig />
       {/* <OrbitControls /> */}
@@ -56,7 +64,7 @@ const Scene = ({ children }) => {
           bokehScale={5}
           height={480}
         />
-        <Bloom luminanceThreshold={0} luminanceSmoothing={3} height={350} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={3} height={300} />
         <Noise opacity={0.02} />
       </EffectComposer>
     </Canvas>
