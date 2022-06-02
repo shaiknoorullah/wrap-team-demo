@@ -10,7 +10,7 @@ import NextCarBtn from './components/nextCarButton';
 const App = () => {
   const [clicked, setClicked] = useState(true);
 
-  const [color, setColor] = useState('blue');
+  const [color, setColor] = useState('orange');
   const handleClick = () => {
     setClicked(!clicked);
   };
