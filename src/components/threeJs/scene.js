@@ -20,7 +20,6 @@ import BasicLights from './lights/basicLighting';
 import BgEnv from './environment';
 import CameraRig from './camera';
 import GroundPlane from './groundPlane';
-import LensFlareEffect from './lensflare';
 
 const Scene = ({ children }) => {
   return (
@@ -55,7 +54,6 @@ const Scene = ({ children }) => {
         <meshPhysicalMaterial roughness={0.75} color="#202023" />
       </Backdrop>
       <GroundPlane position={[0, -1.27, 0]} shadowOpacity={1} />
-      <LensFlareEffect />
       <BakeShadows />
       <CameraRig />
       {/* <OrbitControls /> */}
