@@ -1,42 +1,56 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import React, { Suspense, useState } from 'react';
+import { ChakraProvider, Box, theme } from '@chakra-ui/react';
+// import { ColorModeSwitcher } from './ColorModeSwitcher';
+import Porche from './components/threeJs/models/porche';
+import Lambo from './components/threeJs/models/lambo';
+import Scene from './components/threeJs/scene';
+import ColorNav from './components/colorNav';
+import NextCarBtn from './components/nextCarButton';
 
-function App() {
+const App = () => {
+  const [clicked, setClicked] = useState(true);
+
+  const [color, setColor] = useState('blue');
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
+
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
+      <Box
+        width={'100vw'}
+        height={'100vh'}
+        position={'fixed'}
+        zIndex={'-1'}
+        m={0}
+        p={0}
+      >
+        <Suspense fallback={null}>
+          <Scene
+            children={
+              clicked ? (
+                <Porche
+                  scale={1.8}
+                  position={[-0.5, -0.18, 0]}
+                  rotation={[0, Math.PI / 5, 0]}
+                  color={color}
+                />
+              ) : (
+                <Lambo
+                  scale={1.5}
+                  position={[-0.5, -1.37, 0.13]}
+                  rotation={[0, -(Math.PI / 2) * 1.6, 0]}
+                  color={color}
+                />
+              )
+            }
+          />
+        </Suspense>
       </Box>
+      <NextCarBtn onClick={handleClick} />
+      <ColorNav setColor={setColor} />
     </ChakraProvider>
   );
-}
+};
 
 export default App;
