@@ -1,20 +1,21 @@
-import MeshReflectorMaterial from './drei/MeshReflectorMaterial.tsx';
+import { MeshReflectorMaterial } from '@react-three/drei';
 
 const GroundPlane = props => {
   return (
     <group>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={props.position}>
-        <planeGeometry args={[100, 100]} />
+        <planeGeometry args={[50, 50]} />
         <MeshReflectorMaterial
-          blur={[400, 100]}
-          resolution={1024}
+          blur={[300, 100]}
+          resolution={2048}
           mixBlur={1}
-          opacity={2}
-          depthScale={1.1}
+          mixStrength={40}
+          roughness={0.8}
+          depthScale={1.2}
           minDepthThreshold={0.4}
-          maxDepthThreshold={1.25}
-          roughness={1}
-          color={'black'}
+          maxDepthThreshold={1.4}
+          color="#202023"
+          metalness={1}
         />
       </mesh>
       <mesh
@@ -22,7 +23,7 @@ const GroundPlane = props => {
         rotation-x={-Math.PI / 2}
         position={[
           props.position.x,
-          props.position.y + 0.001,
+          props.position.y + 0.0015,
           props.position.z,
         ]}
       >

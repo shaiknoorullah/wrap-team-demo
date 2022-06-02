@@ -20,6 +20,7 @@ import BasicLights from './lights/basicLighting';
 import BgEnv from './environment';
 import CameraRig from './camera';
 import GroundPlane from './groundPlane';
+import LensFlareEffect from './lensflare';
 
 const Scene = ({ children }) => {
   return (
@@ -31,7 +32,7 @@ const Scene = ({ children }) => {
     >
       {children}
       {/* <Lambo scale={1.6} position={[-0.5, -1.115, 0]} rotation={[0, -(Math.PI / 2) * 1.6, 0]} /> */}
-      <fog attach="fog" args={['gray', 5, 100]} />
+      <fog attach="fog" args={['#202023', 5, 100]} />
       <BasicLights />
       <ContactShadows
         resolution={2048}
@@ -53,7 +54,8 @@ const Scene = ({ children }) => {
       >
         <meshPhysicalMaterial roughness={0.75} color="#202023" />
       </Backdrop>
-      <GroundPlane position={[0, -1.3, 0]} shadowOpacity={1} />
+      <GroundPlane position={[0, -1.27, 0]} shadowOpacity={1} />
+      <LensFlareEffect />
       <BakeShadows />
       <CameraRig />
       {/* <OrbitControls /> */}
