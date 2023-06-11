@@ -6,14 +6,14 @@ const GroundPlane = props => {
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={props.position}>
         <planeGeometry args={[50, 50]} />
         <MeshReflectorMaterial
-          blur={[300, 100]}
+          blur={[500, 300]}
           resolution={2048}
-          mixBlur={1}
-          mixStrength={40}
+          mixBlur={10}
+          mixStrength={50}
           roughness={0.8}
-          depthScale={1.2}
-          minDepthThreshold={0.4}
-          maxDepthThreshold={1.4}
+          depthScale={2}
+          minDepthThreshold={0.01}
+          maxDepthThreshold={1.8}
           color="#202023"
           metalness={1}
         />

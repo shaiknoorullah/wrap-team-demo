@@ -31,12 +31,12 @@ const Scene = ({ children }) => {
     >
       {children}
       {/* <Lambo scale={1.6} position={[-0.5, -1.115, 0]} rotation={[0, -(Math.PI / 2) * 1.6, 0]} /> */}
-      <fog attach="fog" args={['#202023', 5, 100]} />
+      <fog attach="fog" args={['gray', 2.5, 100]} />
       <BasicLights />
       <ContactShadows
         resolution={2048}
         frames={1}
-        position={[0, -1.33, 0]}
+        position={[0, -1.265, 0]}
         scale={9}
         blur={4}
         opacity={1}
@@ -56,7 +56,7 @@ const Scene = ({ children }) => {
       <GroundPlane position={[0, -1.27, 0]} shadowOpacity={1} />
       <BakeShadows />
       <CameraRig />
-      {/* <OrbitControls /> */}
+      <OrbitControls />
       <EffectComposer>
         <DepthOfField
           focusDistance={0}
